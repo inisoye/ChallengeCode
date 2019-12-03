@@ -1,0 +1,155 @@
+/* Some starer styling. Feel free to change anything you like */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  background-color: rgb(220, 220, 220);
+  font-size: 15px;
+  line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+
+  padding: 10vh 0px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+/** Default Table styling begins */
+table {
+  border-collapse: collapse;
+  width: 647px;
+}
+
+th,
+td {
+  padding: 0.6em 3em 0.6em 0.5em;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #fff;
+}
+tr:nth-child(odd) {
+  background-color: rgb(235, 235, 235);
+}
+
+th {
+  background-color: #fff;
+}
+/** Default Table styling ends */
+
+/** Default Navigation styling begins */
+div {
+  width: 647px;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(235, 235, 235);
+
+  padding: 0 10px;
+}
+
+button {
+  border: 0px;
+  font-size: 15px;
+  font-weight: 700;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  height: 30px;
+  padding: 0 10px;
+}
+
+button:focus {
+  outline: 1px solid rgb(221, 170, 76);
+}
+
+button.previous {
+  visibility: hidden;
+  padding-left: 7px;
+}
+
+button img {
+  padding-top: 3px;
+  height: 12px;
+}
+
+.back-arrow {
+  margin-right: 5px;
+}
+
+.forward-arrow {
+  margin-left: 5px;
+}
+
+.hide-row {
+  display: none;
+}
+/** Default Navigation styling ends */
+
+@media only screen and (max-width: 675px) {
+  body {
+    padding: 5vh 0px;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  table,
+  div {
+    width: 90%;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  td {
+    padding: 0.6em 0;
+    padding-left: 0.6em;
+  }
+
+  td:before {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  td:nth-of-type(1):before {
+    content: "💰 Coin ";
+  }
+  td:nth-of-type(2):before {
+    content: "📄 Code ";
+  }
+  td:nth-of-type(3):before {
+    content: "🤑 Price ";
+  }
+  td:nth-of-type(4):before {
+    content: "📉 Total Supply ";
+  }
+}
