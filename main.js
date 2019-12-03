@@ -12,6 +12,7 @@ let tableBody = document.querySelector("tbody");
 let nextButton = document.querySelector("button.next");
 let previousButton = document.querySelector("button.previous");
 
+//* changeable loop start and end values
 let loopStart = 11;
 let loopEnd = 21;
 
