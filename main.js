@@ -48,6 +48,13 @@ fetch("https://api.coinlore.com/api/tickers/")
       }
     }
 
+    //* create function that shows relevant ten rows based on dynamic indices
+    function showTenRows() {
+      for (i = loopStart; i < loopEnd; i++) {
+        tableRows[i].classList.remove("hide-row");
+      }
+    }
+
     nextButton.addEventListener("click", function() {
       previousButton.style.visibility = "visible";
 
@@ -59,9 +66,7 @@ fetch("https://api.coinlore.com/api/tickers/")
         loopEnd += 10;
       }
 
-      for (i = loopStart; i < loopEnd; i++) {
-        tableRows[i].classList.remove("hide-row");
-      }
+      showTenRows();
 
       //* hide nav buttons at limits
       if (loopEnd >= 101) {
@@ -81,9 +86,7 @@ fetch("https://api.coinlore.com/api/tickers/")
         loopEnd -= 10;
       }
 
-      for (i = loopStart; i < loopEnd; i++) {
-        tableRows[i].classList.remove("hide-row");
-      }
+      showTenRows();
 
       if (loopEnd <= 11) {
         previousButton.style.visibility = "hidden";
