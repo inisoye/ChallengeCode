@@ -25,10 +25,14 @@ fetch("https://api.coinlore.com/api/tickers/")
 
     for (i = 0; i < 100; i++) {
       let newRow = document.createElement("tr");
-      newRow.innerHTML = `<td>${dataArray[i].name}</td>
-                          <td>${dataArray[i].symbol}</td>
-                          <td>$ ${dataArray[i].price_usd}</td>
-                          <td>${dataArray[i].tsupply} ${dataArray[i].symbol}</td>`;
+
+      newRow.insertAdjacentHTML(
+        "beforeend",
+        `<td>${dataArray[i].name}</td>
+        <td>${dataArray[i].symbol}</td>
+        <td>$ ${dataArray[i].price_usd}</td>
+        <td>${dataArray[i].tsupply} ${dataArray[i].symbol}</td>`
+      );
 
       tableBody.appendChild(newRow);
     }
@@ -49,7 +53,7 @@ fetch("https://api.coinlore.com/api/tickers/")
     }
 
     //* create function that shows relevant ten rows based on dynamic indices
-    function showTenRows() {
+    function displayTenRows() {
       for (i = loopStart; i < loopEnd; i++) {
         tableRows[i].classList.remove("hide-row");
       }
@@ -66,7 +70,7 @@ fetch("https://api.coinlore.com/api/tickers/")
         loopEnd += 10;
       }
 
-      showTenRows();
+      displayTenRows();
 
       //* hide nav buttons at limits
       if (loopEnd >= 101) {
@@ -86,7 +90,7 @@ fetch("https://api.coinlore.com/api/tickers/")
         loopEnd -= 10;
       }
 
-      showTenRows();
+      displayTenRows();
 
       if (loopEnd <= 11) {
         previousButton.style.visibility = "hidden";
