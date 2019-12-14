@@ -1,1 +1,1 @@
-# BuyCoinsChallengeCode
+ChallengeCode
