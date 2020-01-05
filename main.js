@@ -17,10 +17,10 @@ let loopStart = 11;
 let loopEnd = 21;
 
 fetch("https://api.coinlore.com/api/tickers/")
-  .then(function(response) {
+  .then(response => {
     return response.json();
   })
-  .then(function(data) {
+  .then(data => {
     let dataArray = data.data;
 
     for (i = 0; i < 100; i++) {
@@ -46,20 +46,20 @@ fetch("https://api.coinlore.com/api/tickers/")
     }
 
     //* create function that hides all
-    function hideAllRows() {
+    hideAllRows = () => {
       for (i = 1; i < tableRows.length; i++) {
         tableRows[i].classList.add("hide-row");
       }
-    }
+    };
 
     //* create function that shows relevant ten rows based on dynamic indices
-    function displayTenRows() {
+    displayTenRows = () => {
       for (i = loopStart; i < loopEnd; i++) {
         tableRows[i].classList.remove("hide-row");
       }
-    }
+    };
 
-    nextButton.addEventListener("click", function() {
+    nextButton.addEventListener("click", () => {
       previousButton.style.visibility = "visible";
 
       hideAllRows();
@@ -80,7 +80,7 @@ fetch("https://api.coinlore.com/api/tickers/")
       }
     });
 
-    previousButton.addEventListener("click", function() {
+    previousButton.addEventListener("click", () => {
       nextButton.style.visibility = "visible";
 
       hideAllRows();
@@ -99,6 +99,6 @@ fetch("https://api.coinlore.com/api/tickers/")
       }
     });
   })
-  .catch(function(error) {
+  .catch(error => {
     console.log(error);
   });
